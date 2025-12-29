@@ -1,17 +1,3 @@
-  ;HOW THE PROGRAM WORKS 
-
-
-  ;I scan the BMP file pixel by pixel and for each pixel I call get_pixel to return the color
-  ;When the black pixel is found, i check one pixel up (unless y=0) to check if the marker or something resembling a marker wasn't already analized 
-  ;if pixel above the found black is not black I increment the "thickness" of the letter, the top bar of letter L 
-  ;program continues increasing counter of consecutive black pixel, when it finds other pixel after series of black ones it goes back to the begining of the black line 
-  ;from the begining of the black line program goes down checking if the pixels are black, and counts the number of them 
-  ;once the height of vertical line is found IT IS COMPARED WITH THICKNESS if(height > 2*thickness) -> still potential marker otherwise, go to next pixel 
-  ;then program starts scanning horizontally from the bottom of the vertical line 
-  ;it compares the width with height to check if their ratio is 1:1 
-  ;if the above conditions are met program checks the interior of the marker within its thickness 
-  ;after successful checking of the interior the shape is confirmed as a marker and saved, and the scan in the main loop is resumed from the end of the first black line (thickness line) 
-  
 
     section .text 
     global find_markers    
